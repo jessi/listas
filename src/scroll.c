@@ -25,6 +25,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "tanque.h"
+#include "lista_enemigos.h"
 
 #define COLUMNAS_TILES 7
 #define FILAS_MAPA 10
