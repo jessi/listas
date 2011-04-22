@@ -1,24 +1,30 @@
-# include<stdio.h>
-# include<stdlib.h>
+/*
+ Libreria de Listas ordenas
+*/
+#ifndef LISTA_H
+#define LISTA_H
+
 
 struct nodo
 {
-int dato;
-struct nodo *sig;
+	int dato;
+	struct nodo *sig;
 };
+
 typedef struct nodo NODO;
 typedef NODO *NODOP;
-typeder NODO *LISTA;
+typedef NODO *LISTA;
 
-int insertar(LISTA *l,int d)
+int insertar(LISTA *l, int d)
 {
 	NODOP nuevo,act=*l,ant=NULL;
 	int i=0;
+	printf("entro ala funcion insertar, valor de d=%d\n",d);
 	nuevo=(NODOP)malloc(sizeof(NODO));
 	if(nuevo==NULL)
 	{ 
-	printf("Memoria insuficiente\n");
-	exit (0);
+		printf("Memoria insuficiente\n");
+		exit (0);
 	}
 	nuevo->dato=d;
 	while(act!=NULL && d>act->dato)
@@ -37,9 +43,9 @@ int insertar(LISTA *l,int d)
 	 nuevo->sig=act;
 	 }
   return i;
-  }
+}
 
-int eliminar(LISTA *l,int e)
+int eliminar(LISTA *l, int e)
 {
 	NODOP ant=NULL,act =*l;
 	while(act!=NULL && e>act->dato)
@@ -55,11 +61,11 @@ int eliminar(LISTA *l,int e)
 		 }
 	 else
 		 {
-		   ant->sig=act-sig;
+		   ant->sig=act->sig;
 		 }
 	 free(act);
 	 return 1;
- }
+}
 
 int vacia(LISTA *l)
 {
@@ -68,7 +74,4 @@ if(*l==NULL)
 return 1;
 }
 
-int main()
-{
-LISTA l;
-int e;
+#endif
