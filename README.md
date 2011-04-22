@@ -3,7 +3,7 @@ Battle tank
 
 ##Se agrego ejemplo grafico "lista_ordenada_grafica"
 
-![imagen - lista_ordenada_grafica](https://github.com/jessi/listas/blob/master/lista_ordenada_grafica/img/nodos.png)
+![imagen - lista_ordenada_grafica](https://github.com/jessi/listas/raw/master/lista_ordenada_grafica/img/nodos.png)
 
 [lista_ordenada_grafica](https://github.com/jessi/listas/tree/master/lista_ordenada_grafica/)
 
