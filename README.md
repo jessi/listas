@@ -3,9 +3,9 @@ Battle tank
 
 ##Se agrego ejemplo grafico "lista_ordenada_grafica"
 
-![imagen - lista_ordenada_grafica](https://github.com/jessi/listas/lista_ordenada_grafica/img/nodos.png)
+![imagen - lista_ordenada_grafica](/jessi/listas/lista_ordenada_grafica/img/nodos.png)
 
-[lista_ordenada_grafica](https://github.com/jessi/listas/lista_ordenada_grafica/)
+[lista_ordenada_grafica](/jessi/listas/lista_ordenada_grafica/)
 
 
 Sólo que falta la libreria de la listas, ¿cual ocupo?, en fin.
