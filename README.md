@@ -1,4 +1,4 @@
-Batalla entre tanques.
+Battle tank
 ===================
 
 ###Caracteristicas principales:
