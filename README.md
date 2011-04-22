@@ -93,3 +93,29 @@ Administra una lista de nodos con Tanque como tipo de dato.
 
 ###lista_enemigos.h
 Administra una lista de nodos con Tanque como tipo de dato.
+
+
+
+/*lista_enemigo.h*/
+struct nodo_enemigo
+{
+
+struct Tanque tnaque;
+struct nodo_tanuqe_enemigo *siguiente;};
+
+intlista_enemigo_vacia(strcut *nodo_enemigo)
+{
+1:vacia
+0:otro caso
+int lista_enemigos_insertar(struct *Tanque)
+1=se pudo;
+0=otro caso
+int lista_enemigos_eliminar(struct *Tanque)
+
+1=se pudo
+0=otro caso
+if(lista_enemigos_insertar(struct *Tanque)
+{
+//
+}
+//error
