@@ -14,8 +14,7 @@ struct nodo
 typedef struct nodo NODO;
 typedef NODO *NODOP;
 typedef NODO *LISTA;
-
-int insertar(LISTA *l, int d)
+int lista_insertar(LISTA *l, int d)
 {
 	NODOP nuevo,act=*l,ant=NULL;
 	int i=0;
@@ -27,6 +26,10 @@ int insertar(LISTA *l, int d)
 		exit (0);
 	}
 	nuevo->dato=d;
+	if(lista_vacia(*l))
+	{*l=nuevo;
+	return i;
+	}
 	while(act!=NULL && d>act->dato)
 	{ ant=act;
 	  act=act->sig;
@@ -45,7 +48,7 @@ int insertar(LISTA *l, int d)
   return i;
 }
 
-int eliminar(LISTA *l, int e)
+int lista_eliminar_elemento(LISTA *l, int e)
 {
 	NODOP ant=NULL,act =*l;
 	while(act!=NULL && e>act->dato)
@@ -67,7 +70,7 @@ int eliminar(LISTA *l, int e)
 	 return 1;
 }
 
-int vacia(LISTA *l)
+int lista_vacia(LISTA *l)
 {
 if(*l==NULL)
   return 0;
