@@ -1,4 +1,4 @@
-Batalla entre tanques.
+Battle tank
 ===================
 
 ###Caracteristicas principales:
@@ -90,6 +90,3 @@ los metodos que contiene son:
 
 Administra una lista de nodos con Tanque como tipo de dato.
 
-
-###lista_enemigos.h
-Administra una lista de nodos con Tanque como tipo de dato.
