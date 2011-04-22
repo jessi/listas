@@ -27,6 +27,10 @@
 #include "tanque.h"
 #include "lista_enemigos.h"
 
+#include "bonos.h"
+#include "cajas.h"
+
+
 #define COLUMNAS_TILES 7
 #define FILAS_MAPA 10
 #define COLUMNAS_MAPA 20
