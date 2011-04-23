@@ -199,6 +199,18 @@ void mover_tanque (Tanque * tanque)
 
 void imprimir_escenario (SDL_Surface * screen, SDL_Surface * ima, int x, int y)
 {
+	
+	FILE * pFile;
+	pFile = fopen ("/escenario/mapa1.txt","r");
+	char c;
+	if (pFile==NULL)
+		die('no se pudo abrir el mapa del escenario');
+	do {
+		c = fgetc (pFile);
+		//if(c != '\n')
+		printf("%c",c);
+    } while (c != EOF);
+	
 	static char mapa [FILAS_MAPA] [COLUMNAS_MAPA + 1] = {
 		"00000002112000000211",
 		"00000002112000000211",
@@ -209,7 +221,8 @@ void imprimir_escenario (SDL_Surface * screen, SDL_Surface * ima, int x, int y)
 		"11111111111111111111",
 		"11111111111111111111",
 		"11111111111111111111",
-		"11111111111111111111"};
+		"11111111111111111111"
+	};
 	int i;
 	int j;
 	int fila = y / ALTO_TILE;
