@@ -3,100 +3,104 @@
 */
 #ifndef LISTAS_ORDENADAS_H
 #define LISTAS_ORDENADAS_H
-
 struct nodo
 {
-	int dato;
-	struct nodo * siguiente;
+	Uint16 dato;
+	struct nodo *sig;
 };
 
+typedef struct nodo NODO;
+typedef NODO *NODOP;
+typedef NODO *LISTA;
 
-/*
- * Devuelve el tamaño de la lista ordenada
- */
-
-int tam(struct nodo * actual)
+int lista_ord_dimension(LISTA *l)
  {
 	int len = 0;
-	while(actual)
+	while(l)
 	{
 		len++;
-		actual = actual->siguiente;
+		actual = actual->sig;
 	}
 	return len;
 }
 
-/*
- * Imprime el contenido de la lista
- */
-void list_ord_imprimir(struct nodo * lista_ord)
-{
-	while(lista_ord){
-		printf("[%d]->",lista_ord->dato);
-		lista_ord = lista_ord->siguiente;
-	}
-	printf("NULL\n");
-}
 
-/*
- * Inserta el valor numerico dato en la lista ordenada
- */
-struct nodo* list_ord_insertar(struct nodo* list_ord, int dato)
+int list_insertar(LISTA *l, int dato)
 {
-    struct nodo * actual = list_ord;
-    struct nodo * nuevoNodo = (nodo*)(malloc(sizeof(nodo*)));
-    nuevoNodo->dato = dato;
-    nuevoNodo->siguiente = NULL;
-    //Caso base para el 1er elemento
-    if(list_ord == NULL)
-		return nuevoNodo;
-	//ahora el sigiente es buscar la posicion de dato
-	while(actual!=NULL){
-		
-        if(actual->siguiente==NULL){
-            actual->siguiente = nuevoNodo;
-            break;
-		}if(actual->siguiente->dato < nuevoNodo->dato){
-			nuevoNodo->siguiente = actual->siguiente;
-			actual->siguiente = nuevoNodo;
-			break;
-		}
-		else
-			actual = actual->siguiente;
+    NODOP actual = *l;
+    NODOP nuevo = (NODOP)malloc(sizeof(NODO));
+    	if(nuevo==NULL)
+	{ 
+		printf("Memoria insuficiente\n");
+		reutur 0;
 	}
-	list_ord_imprimir(list_ord);
-    return list_ord;
-}
-
-/*
- * Devuelve true si la lista esta vacia y false en caso contrario
- */
-bool list_ord_es_vacio(struct nodo * list_ord){
-    if(list_ord == NULL)
+    nuevo->dato = dato;
+    nuevo->sig = NULL;
+    
+    if(*l== NULL)
+    { *l=nuevo;
+	return 1;
+	}
+	
+    while(actual!=NULL && dato>act->dato)
     {
-		printf("La lista ordenada esta vacia");
-		return true;
-    }
-    else{
-        return false;
-    }
-}
-
-/*
- * Borra un elemento en la lista apartir de su valor
- */
-struct nodo * list_ord_borrar(struct nodo * list_ord, int dato){
-    struct nodo * actual = list_ord;
-	while(actual!=NULL){
-        if(actual->siguiente != NULL && actual->siguiente->dato == dato){
-			actual->siguiente = actual->siguiente->siguiente;
+		
+        if(actual->siguiente==NULL)
+          {
+            actual->sig= nuevo;
+            break;
+	  }
+	 if(actual->sig->dato > nuevo->dato)
+	 {
+			nuevo->sig = actual->sig;
+			actual->sig = nuevo;
 			break;
-		}
-		else
-			actual = actual->siguiente;
 	}
-	list_ord_imprimir(list_ord);
-    return list_ord;
+	else
+		actual = actual->siguiente;
+	}
+  return 1;
 }
 
+int lista_ord_borrar_posicion(LISTA *l,int pos);       
+{
+NODOP ant=NULL,act =*l,aux=*l;
+  int c=0,t;
+  while(act!=NUll && c!=pos)
+    { ant=act;
+      act=act->sig;
+      c++;
+      }
+	if(c==0)
+	    { 
+	    *l=(*l)->sig;
+	      t=act->dato;
+	      free(act);
+	    return t;
+	    }
+	else if(c==pos)
+	{
+	 t=act->dato;
+	 ant->sig=act->sig;
+	 free(act);
+	 return t;
+	 }
+	else if(act==NULL&& c!=pos)
+	 { printf("pocicion incorrecta\n");
+	exit(0);
+	}
+}      
+       
+int lista_ord_buscar_existe(LISTA *l,int valor);
+{
+NODOP act=*l;
+while(act!=NULL)
+  {
+   if(act->dato==valor)
+     return 0;
+   else
+    act=act->sig;
+  }
+ return -1;
+}	   
 #endif
