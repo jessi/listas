@@ -99,7 +99,7 @@ void mostrar_apuntador(int pos_x){
 }
 
 void mostrar_null(int pos_x){
-	nodo_rectBlitOrg.x = 200;
+	nodo_rectBlitOrg.x = 100;
 	nodo_rectBlitDest.x = pos_x;
 	show_nodo_element();
 }
