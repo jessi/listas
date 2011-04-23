@@ -17,4 +17,4 @@ int main()
 	printf("dato eliminado; %d fué %d\n",e,t);
 	return 0;
 }
-
+it
