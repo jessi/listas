@@ -10,8 +10,10 @@ aqui va a estar la estructura de los bonos
 #define BONO_RAPIDEZ 4
 #define BONO_NUEVA_VIDA 5
 
-typedef struct bono{
-	int x,y,w,h;
+typedef struct bono
+{
+int x,y,w,h;
+
 }Bono;
 
 
