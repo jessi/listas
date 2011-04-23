@@ -10,13 +10,13 @@ typedef struct nodo NODO;
 typedef NODO *NODOP;
 typedef NODO *LISTA;
 
-int lis_cir_tam(LISTA * actual)
+int lis_cir_tam(LISTA *l)
  {
 	int len = 0;
-	while(actual)
+	while(l)
 	{
 		len++;
-		actual = actual->siguiente;
+		*l = (*l)->sig;
 	}
 	return len;
 }
@@ -34,7 +34,7 @@ void list_cir_insertar(LISTA *l,int d)
 	}
 	nuevo->dato=d;
 	nuevo->sig=NULL;
-	if(vacia(*l))
+	if(list_cir_vacia(*l))
 	{
 	nuevo->sig=nuevo;
 	*l=nuevo;
@@ -45,8 +45,7 @@ void list_cir_insertar(LISTA *l,int d)
 	while(act->sig!=*l && d>=act->dato)
 	{ ant=act;
 	  act=act->sig;
-	  i++;
-	  }
+	}
 	 if(d<(*l)->dato)
 	 {
 	 while(act->sig!=*l)
@@ -71,8 +70,8 @@ return ;
 int list_cir_eliminar(LISTA *l,int e)
 {
 	NODOP ant=NULL,act =*l;
-	if(vacia(*l))
-	return 0;
+	if(list_cir_vacia(*l))
+	  return 0;
 	while(act->sig!=*l && e>act->dato)
 		{ 
 		 ant=act;
@@ -95,19 +94,13 @@ int list_cir_eliminar(LISTA *l,int e)
     	 free(act);
     	 }
     	 return 1;
- }
-		 }
-	 else
-		 {
-		   ant->sig=act-sig;
-		 }
-	 free(act);
-	 return 1;
- }
-
+  }
+		
 int list_cir_vacia(LISTA *l)
 {
 if(*l==NULL)
   return 0;
 return 1;
 }
+
+#endif

@@ -9,6 +9,9 @@ Battle tank
 
 
 Sólo que falta la libreria de la listas, ¿cual ocupo?, en fin.
+son dos animaciones:
+  ->listas ligadas(ordenadas//lista.h)
+  ->listas circulares(ordenadas)
 
 ###Caracteristicas principales:
 
