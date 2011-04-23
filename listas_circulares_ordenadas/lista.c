@@ -12,6 +12,9 @@ int main()
 	
 	t=lista_eliminar_elemento(&l,e);
 	printf("dato eliminado; %d fué %d\n",e,t);
+	lista_insertar(&l, 3);
+	t=lista_eliminar_elemento(&l,3);
+	printf("dato eliminado; %d fué %d\n",e,t);
 	return 0;
 }
 
