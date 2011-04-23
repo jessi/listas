@@ -41,6 +41,8 @@ int main(int argc, char *argv[]) {
 		while ( SDL_PollEvent(&event) ) {
 			if ( event.type == SDL_KEYDOWN )
 				done = 1;
+                       else if (event.type == SDL_MOUSEMOTION)
+                                      printf("posicion del mouse x=%d, y=%d", event.x, event.y);
 		}
 	}
 	return 0;
