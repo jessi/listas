@@ -39,10 +39,38 @@ int main(int argc, char *argv[]) {
 	// Esperamos la pulsación de una tecla para salir
 	while(done == 0) {
 		while ( SDL_PollEvent(&event) ) {
-			if ( event.type == SDL_KEYDOWN )
+			switch (event.type)
+			{
+			case SDL_QUIT:
+				puts("Detección salir del juego");
 				done = 1;
-                       else if (event.type == SDL_MOUSEMOTION)
-                                      printf("posicion del mouse x=%d, y=%d", event.x, event.y);
+				break;
+			case SDL_KEYDOWN:
+				done = 1;
+				break;
+			case SDL_MOUSEMOTION:
+				printf("Mouse en movimiento posición x=%d, y=%d\n", event.motion.x, event.motion.y);
+				break;
+			case SDL_MOUSEBUTTONDOWN:
+				switch (event.button.button)
+				{
+					case SDL_BUTTON_LEFT:
+						puts("se preciono el bonton izquierdo");
+						break;
+
+					case SDL_BUTTON_RIGHT:
+						puts("se preciono el bonton derecho");
+						break;
+					case SDL_BUTTON_MIDDLE:
+						puts("se preciono el bonton del centro");
+						break;
+					default:
+						break;
+				}
+				break;
+			default:
+				break;
+		}
 		}
 	}
 	return 0;
