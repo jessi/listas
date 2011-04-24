@@ -2,7 +2,7 @@
 listas_ordenadas.h
 ====
 
-# (1)->(5)->(3)->NULL
+# (1)->(3)->(5)->NULL
 
 
 ### int lista\_org\_insertar(LISTA *l, int v);
@@ -11,14 +11,21 @@ listas_ordenadas.h
 > - devuelve 1 si se inserto con exito y 0 en caso contrario
 
 	int lista_org_insertar(&l, 7);
-	//lista resultante (1)->(5)->(3)->(7)->NULL
+	//lista resultante (1)->(3)->(5)->(7)->NULL
+	
+	int lista_org_insertar(&l, 7);
+	//lista resultante (1)->(3)->(5)->(7)->(7)->NULL
 	
 ### int lista\_ord\_valor\_pos(LISTA *l, int pos);
 
-> - Regresa el valor del elemento en la posición pos
-
+- Regresa el valor del elemento en la posición pos
+- Si pos es invalida p.e. mayor que la dimensión de la lista regresa -1
+	
+	lista_ord_valor(&l, -1)//Regresa -1,no 
 	lista_org_valor_pos(&l, 0)//Regresa 1
-	lista_ord_valor(&l, 2)//Regresa 3
+	lista_ord_valor(&l, 2)//Regresa 5
+	lista_ord_valor(&l, 4)//Regresa -1
+	
 
 ###int lista\_ord\_borrar\_posicion(LISTA *l,int pos);
        lista_ord_borrar_posicion(&l,1)
