@@ -5,7 +5,8 @@
 #define LISTAS_ORDENADAS_H
 struct nodo
 {
-	Uint16 dato;
+	//Uint16 dato;
+	int dato;
 	struct nodo *sig;
 };
 
@@ -15,8 +16,9 @@ typedef NODO *LISTA;
 
 int lista_ord_dimension(LISTA *l)
  {
+	NODOP actual = *l;
 	int len = 0;
-	while(l)
+	while(actual)
 	{
 		len++;
 		actual = actual->sig;
@@ -32,20 +34,20 @@ int list_insertar(LISTA *l, int dato)
     	if(nuevo==NULL)
 	{ 
 		printf("Memoria insuficiente\n");
-		reutur 0;
+		return 0;
 	}
     nuevo->dato = dato;
     nuevo->sig = NULL;
     
-    if(*l== NULL)
+    if(*l == NULL)
     { *l=nuevo;
 	return 1;
 	}
 	
-    while(actual!=NULL && dato>act->dato)
+    while( (actual != NULL) && (dato > actual->dato) )
     {
 		
-        if(actual->siguiente==NULL)
+        if(actual->sig == NULL)
           {
             actual->sig= nuevo;
             break;
@@ -57,16 +59,15 @@ int list_insertar(LISTA *l, int dato)
 			break;
 	}
 	else
-		actual = actual->siguiente;
+		actual = actual->sig;
 	}
   return 1;
 }
 
-int lista_ord_borrar_posicion(LISTA *l,int pos);       
-{
-NODOP ant=NULL,act =*l,aux=*l;
-  int c=0,t;
-  while(act!=NUll && c!=pos)
+int lista_ord_borrar_posicion(LISTA *l,int pos){
+	NODOP ant=NULL,act =*l,aux=*l;
+	int c=0,t;
+	while(act!=NULL && c!=pos)
     { ant=act;
       act=act->sig;
       c++;
@@ -91,16 +92,16 @@ NODOP ant=NULL,act =*l,aux=*l;
 	}
 }      
        
-int lista_ord_buscar_existe(LISTA *l,int valor);
+int lista_ord_buscar_existe(LISTA *l,int valor)
 {
-NODOP act=*l;
-while(act!=NULL)
-  {
-   if(act->dato==valor)
-     return 0;
-   else
-    act=act->sig;
-  }
- return -1;
-}	   
+	NODOP act=*l;
+	while(act!=NULL)
+	{
+	if(act->dato==valor)
+		return 0;
+	else
+		act=act->sig;
+	}
+	return -1;
+}   
 #endif

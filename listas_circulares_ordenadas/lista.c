@@ -1,5 +1,4 @@
 //LISTA ORDENADA
-
 #include<stdio.h>
 #include<stdlib.h>
 #include"listas_ordenadas.h"
