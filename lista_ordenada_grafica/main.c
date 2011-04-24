@@ -49,7 +49,8 @@ int main(int argc, char *argv[]) {
 				done = 1;
 				break;
 			case SDL_MOUSEMOTION:
-				printf("Mouse en movimiento posición x=%d, y=%d\n", event.motion.x, event.motion.y);
+				if(event.motion.y>430)
+					printf("Mouse en movimiento posición x=%d, y=%d\n", event.motion.x, event.motion.y);
 				break;
 			case SDL_MOUSEBUTTONDOWN:
 				switch (event.button.button)
